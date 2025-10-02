@@ -161,3 +161,19 @@ services:
     volumes:
       - /mnt/appdata/bazarr-anime:/config
       - /mnt/media:/mnt/media
+
+  notifiarr:
+    image: golift/notifiarr
+    container_name: notifiarr
+    hostname: notifiarr
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 5454
+    volumes:
+      - /flash/appdata/notifiarr:/config
+      - /var/run/utmp:/var/run/utmp
+      - /etc/machine-id:/etc/machine-id
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    restart: unless-stopped

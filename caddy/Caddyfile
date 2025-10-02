@@ -110,6 +110,14 @@ bazarr-anime.local.bondzulic.com {
 	}
 }
 
+notifiarr.local.bondzulic.com {
+	reverse_proxy 192.168.0.41:5454 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 jellyfin.local.bondzulic.com {
 	reverse_proxy 192.168.0.30:8096 {
 		# Standard headers
