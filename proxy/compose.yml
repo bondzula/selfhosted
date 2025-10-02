@@ -1,0 +1,16 @@
+services:
+  caddy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: caddy
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - /mnt/oslo/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /mnt/oslo/caddy/data:/data
+      - /mnt/oslo/caddy/config:/config
+    environment:
+      - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+      - ACME_AGREE=true
