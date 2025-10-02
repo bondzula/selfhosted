@@ -87,7 +87,7 @@ sonarr-anime.local.bondzulic.com {
 }
 
 jellyfin.local.bondzulic.com {
-	reverse_proxy 192.168.0.200:8096 {
+	reverse_proxy 192.168.0.30:8096 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -95,7 +95,7 @@ jellyfin.local.bondzulic.com {
 }
 
 jellyseer.local.bondzulic.com {
-	reverse_proxy 192.168.0.200:5055 {
+	reverse_proxy 192.168.0.30:5055 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -103,7 +103,7 @@ jellyseer.local.bondzulic.com {
 }
 
 jellystat.local.bondzulic.com {
-	reverse_proxy 192.168.0.200:3000 {
+	reverse_proxy 192.168.0.30:3000 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
