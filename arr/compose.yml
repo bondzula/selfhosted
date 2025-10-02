@@ -169,7 +169,7 @@ services:
     security_opt:
       - no-new-privileges:true
     ports:
-      - 5454
+      - 5454:5454
     volumes:
       - /flash/appdata/notifiarr:/config
       - /var/run/utmp:/var/run/utmp
