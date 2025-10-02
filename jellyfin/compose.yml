@@ -9,8 +9,8 @@ services:
     ports:
       - 8096:8096
     volumes:
-      - /var/lib/jellyfin/config:/config
-      - /var/lib/jellyfin/cache:/cache
+      - /mnt/appdata/jellyfin/config:/config
+      - /mnt/appdata/jellyfin/cache:/cache
       - /mnt/media:/mnt/media
     devices:
       - /dev/dri/renderD128:/dev/dri/renderD128
@@ -24,7 +24,7 @@ services:
       POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
       POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
     volumes:
-      - /var/lib/jellystat/db:/var/lib/postgresql/data
+      - /mnt/appdata/jellystat/db:/var/lib/postgresql/data
     restart: unless-stopped
 
   media-stats:
@@ -41,7 +41,7 @@ services:
       POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
       JWT_SECRET: ${JELLYSTAT_JWT_SECRET}
     volumes:
-      - /var/lib/jellystat/config:/app/backend/backup-data
+      - /mnt/appdata/jellystat/config:/app/backend/backup-data
     restart: unless-stopped
 
   media-requests:
@@ -52,5 +52,5 @@ services:
     ports:
       - 5055:5055
     volumes:
-      - /var/lib/jellyseerr/config:/app/config
+      - /mnt/appdata/jellyseerr/config:/app/config
     restart: unless-stopped
