@@ -86,6 +86,30 @@ sonarr-anime.local.bondzulic.com {
 	}
 }
 
+bazarr-hd.local.bondzulic.com {
+	reverse_proxy 192.168.0.41:6767 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
+bazarr-uhd.local.bondzulic.com {
+	reverse_proxy 192.168.0.41:6768 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
+bazarr-anime.local.bondzulic.com {
+	reverse_proxy 192.168.0.41:6769 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 jellyfin.local.bondzulic.com {
 	reverse_proxy 192.168.0.30:8096 {
 		# Standard headers
