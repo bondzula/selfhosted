@@ -23,7 +23,7 @@ proxmox.local.bondzulic.com {
 }
 
 torrent.local.bondzulic.com {
-	reverse_proxy 192.168.0.120:8085 {
+	reverse_proxy 192.168.0.40:8085 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -31,7 +31,7 @@ torrent.local.bondzulic.com {
 }
 
 sabnzbd.local.bondzulic.com {
-	reverse_proxy 192.168.0.120:8080 {
+	reverse_proxy 192.168.0.40:8080 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -39,7 +39,7 @@ sabnzbd.local.bondzulic.com {
 }
 
 prowlarr.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:9696 {
+	reverse_proxy 192.168.0.41:9696 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -47,7 +47,7 @@ prowlarr.local.bondzulic.com {
 }
 
 radarr-hd.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:7878 {
+	reverse_proxy 192.168.0.41:7878 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -55,7 +55,7 @@ radarr-hd.local.bondzulic.com {
 }
 
 radarr-uhd.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:7879 {
+	reverse_proxy 192.168.0.41:7879 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -63,7 +63,7 @@ radarr-uhd.local.bondzulic.com {
 }
 
 sonarr-hd.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:8989 {
+	reverse_proxy 192.168.0.41:8989 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -71,7 +71,7 @@ sonarr-hd.local.bondzulic.com {
 }
 
 sonarr-uhd.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:8990 {
+	reverse_proxy 192.168.0.41:8990 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -79,7 +79,7 @@ sonarr-uhd.local.bondzulic.com {
 }
 
 sonarr-anime.local.bondzulic.com {
-	reverse_proxy 192.168.0.121:8991 {
+	reverse_proxy 192.168.0.41:8991 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
