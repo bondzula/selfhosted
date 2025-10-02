@@ -171,7 +171,7 @@ services:
     ports:
       - 5454:5454
     volumes:
-      - /flash/appdata/notifiarr:/config
+      - /mnt/appdata/notifiarr:/config
       - /var/run/utmp:/var/run/utmp
       - /etc/machine-id:/etc/machine-id
     labels:
