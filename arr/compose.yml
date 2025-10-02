@@ -1,0 +1,163 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 9696:9696
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/prowlarr:/config
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - LOG_LEVEL=info
+
+  radarr-hd:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-hd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/radarr-hd:/config
+      - /mnt/media/movies/1080p/:/mnt/media/movies/1080p
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+
+  radarr-uhd:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-uhd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 7879:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/radarr-uhd:/config
+      - /mnt/media/movies/4k/:/mnt/media/movies/4k
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+
+  sonarr-hd:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-hd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/sonarr-hd:/config
+      - /mnt/media/tv/1080p/:/mnt/media/tv/1080p
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+
+  sonarr-uhd:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-uhd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8990:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/sonarr-uhd:/config
+      - /mnt/media/tv/4k/:/mnt/media/tv/4k
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+
+  sonarr-anime:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr-anime
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8991:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/sonarr-anime:/config
+      - /mnt/media/anime/:/mnt/media/anime
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+
+  bazarr-hd:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-hd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-hd:/config
+      - /mnt/media/movies/1080p:/mnt/media/movies/1080p
+      - /mnt/media/tv/1080p:/mnt/media/tv/1080p
+
+  bazarr-uhd:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-uhd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6768:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-uhd:/config
+      - /mnt/media:/mnt/media
+
+  bazarr-anime:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-anime
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6769:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-anime:/config
+      - /mnt/media:/mnt/media

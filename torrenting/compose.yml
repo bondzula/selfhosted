@@ -9,7 +9,7 @@ services:
     cap_add:
       - NET_ADMIN
     volumes:
-      - /var/lib/gluetun:/gluetun
+      - /mnt/appdata/gluetun:/gluetun
     environment:
       - VPN_TYPE=wireguard
       - VPN_SERVICE_PROVIDER=protonvpn
@@ -36,7 +36,7 @@ services:
       - TZ=Europe/Belgrade
       - WEBUI_PORT=8085
     volumes:
-      - /var/lib/qbittorrent:/config
+      - /mnt/appdata/qbittorrent:/config
       - /mnt/media/torrents:/mnt/media/torrents
     depends_on:
       - gluetun
@@ -51,7 +51,7 @@ services:
       - PGID=1000
       - TZ=Europe/Belgrade
     volumes:
-      - /var/lib/sabnzbd:/config
+      - /mnt/appdata/sabnzbd:/config
       - /mnt/media/usenet:/mnt/media/usenet
     depends_on:
       - gluetun
