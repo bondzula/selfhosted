@@ -1,0 +1,56 @@
+services:
+  media-server:
+    image: jellyfin/jellyfin
+    security_opt:
+      - no-new-privileges:true
+    user: 1000:1000
+    group_add:
+      - "226"
+    ports:
+      - 8096:8096
+    volumes:
+      - /var/lib/jellyfin/config:/config
+      - /var/lib/jellyfin/cache:/cache
+      - /mnt/media:/mnt/media
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+    restart: unless-stopped
+
+  media-db:
+    image: postgres:15.2
+    user: 1000:1000
+    environment:
+      POSTGRES_DB: ${JELLYSTAT_POSTGRES_DB}
+      POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
+    volumes:
+      - /var/lib/jellystat/db:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  media-stats:
+    image: cyfershepard/jellystat:latest
+    user: 1000:1000
+    depends_on:
+      - media-db
+    ports:
+      - 3000:3000
+    environment:
+      POSTGRES_IP: media-db
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: ${JELLYSTAT_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${JELLYSTAT_POSTGRES_PASSWORD}
+      JWT_SECRET: ${JELLYSTAT_JWT_SECRET}
+    volumes:
+      - /var/lib/jellystat/config:/app/backend/backup-data
+    restart: unless-stopped
+
+  media-requests:
+    image: fallenbagel/jellyseerr:latest
+    user: 1000:1000
+    environment:
+      TZ: ${TZ}
+    ports:
+      - 5055:5055
+    volumes:
+      - /var/lib/jellyseerr/config:/app/config
+    restart: unless-stopped
