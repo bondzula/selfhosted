@@ -17,8 +17,9 @@ services:
     container_name: ryot
     restart: unless-stopped
     ports:
-      - 8000:8000
+      - 8000:8080
     environment:
       - TZ=Europe/Belgrade
       - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@ryot-db:5432/${DB_NAME}
       - SERVER_ADMIN_ACCESS_TOKEN=${SERVER_ADMIN_ACCESS_TOKEN}
+      - SERVER_PRO_KEY=${PRO_KEY}
