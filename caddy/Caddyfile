@@ -142,7 +142,7 @@ jellyfin.local.bondzulic.com {
 	}
 }
 
-jellyseer.local.bondzulic.com {
+jellyseerr.local.bondzulic.com {
 	reverse_proxy 192.168.0.30:5055 {
 		# Standard headers
 		header_up Host {host}
