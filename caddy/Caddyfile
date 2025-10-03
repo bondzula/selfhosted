@@ -30,8 +30,24 @@ torrent.local.bondzulic.com {
 	}
 }
 
+rdt.local.bondzulic.com {
+	reverse_proxy 192.168.0.40:6500 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 sabnzbd.local.bondzulic.com {
 	reverse_proxy 192.168.0.40:8080 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
+zilean.local.bondzulic.com {
+	reverse_proxy 192.168.0.41:8181 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
