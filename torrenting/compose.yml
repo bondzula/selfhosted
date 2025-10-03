@@ -23,6 +23,8 @@ services:
     dns:
       - 1.1.1.1
       - 1.0.0.1
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     devices:
       - /dev/net/tun:/dev/net/tun
 
@@ -39,6 +41,8 @@ services:
     volumes:
       - /mnt/appdata/qbittorrent:/config
       - /mnt/media/torrents:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     depends_on:
       - gluetun
 
@@ -58,6 +62,8 @@ services:
        driver: json-file
        options:
           max-size: 10m
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     depends_on:
       - gluetun
 
@@ -73,6 +79,8 @@ services:
     volumes:
       - /mnt/appdata/sabnzbd:/config
       - /mnt/media/usenet:/mnt/media/usenet
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
     depends_on:
       - gluetun
 

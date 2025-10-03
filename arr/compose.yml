@@ -13,6 +13,8 @@ services:
       - TZ=Europe/Belgrade
     volumes:
       - /mnt/appdata/prowlarr:/config
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   flaresolverr:
     image: ghcr.io/flaresolverr/flaresolverr:latest
@@ -22,6 +24,8 @@ services:
       - no-new-privileges:true
     environment:
       - LOG_LEVEL=info
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   radarr-hd:
     image: lscr.io/linuxserver/radarr:latest
@@ -40,6 +44,8 @@ services:
       - /mnt/media/movies/1080p/:/mnt/media/movies/1080p
       - /mnt/media/usenet/:/mnt/media/usenet
       - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   radarr-uhd:
     image: lscr.io/linuxserver/radarr:latest
@@ -58,6 +64,8 @@ services:
       - /mnt/media/movies/4k/:/mnt/media/movies/4k
       - /mnt/media/usenet/:/mnt/media/usenet
       - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   sonarr-hd:
     image: lscr.io/linuxserver/sonarr:latest
@@ -76,6 +84,8 @@ services:
       - /mnt/media/tv/1080p/:/mnt/media/tv/1080p
       - /mnt/media/usenet/:/mnt/media/usenet
       - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   sonarr-uhd:
     image: lscr.io/linuxserver/sonarr:latest
@@ -94,6 +104,8 @@ services:
       - /mnt/media/tv/4k/:/mnt/media/tv/4k
       - /mnt/media/usenet/:/mnt/media/usenet
       - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   sonarr-anime:
     image: lscr.io/linuxserver/sonarr:latest
@@ -112,6 +124,8 @@ services:
       - /mnt/media/anime/:/mnt/media/anime
       - /mnt/media/usenet/:/mnt/media/usenet
       - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   bazarr-hd:
     image: lscr.io/linuxserver/bazarr:latest
@@ -129,6 +143,8 @@ services:
       - /mnt/appdata/bazarr-hd:/config
       - /mnt/media/movies/1080p:/mnt/media/movies/1080p
       - /mnt/media/tv/1080p:/mnt/media/tv/1080p
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   bazarr-uhd:
     image: lscr.io/linuxserver/bazarr:latest
@@ -145,6 +161,8 @@ services:
     volumes:
       - /mnt/appdata/bazarr-uhd:/config
       - /mnt/media:/mnt/media
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   bazarr-anime:
     image: lscr.io/linuxserver/bazarr:latest
@@ -161,6 +179,8 @@ services:
     volumes:
       - /mnt/appdata/bazarr-anime:/config
       - /mnt/media:/mnt/media
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   zilean:
     image: ipromknight/zilean:latest
@@ -183,6 +203,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   postgres:
     image: postgres:17.2-alpine
@@ -202,6 +224,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
 
   notifiarr:
     image: golift/notifiarr
