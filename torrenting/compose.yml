@@ -6,6 +6,7 @@ services:
     ports:
       - 8085:8085
       - 8080:8080
+      - 6500:6500
     cap_add:
       - NET_ADMIN
     volumes:
@@ -38,6 +39,25 @@ services:
     volumes:
       - /mnt/appdata/qbittorrent:/config
       - /mnt/media/torrents:/mnt/media/torrents
+    depends_on:
+      - gluetun
+
+  rdtclient:
+    image: rogerfar/rdtclient
+    container_name: rdtclient
+    restart: unless-stopped
+    network_mode: "service:gluetun"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /mnt/appdata:/data/db
+      - /mnt/media/torrents:/data/downloads
+    logging:
+       driver: json-file
+       options:
+          max-size: 10m
     depends_on:
       - gluetun
 
