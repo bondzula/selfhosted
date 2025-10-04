@@ -62,14 +62,6 @@ sabnzbd.local.bondzulic.com {
 	}
 }
 
-zilean.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:8181 {
-		# Standard headers
-		header_up Host {host}
-		header_up X-Real-IP {remote_ip}
-	}
-}
-
 prowlarr.local.bondzulic.com {
 	reverse_proxy 192.168.0.41:9696 {
 		# Standard headers
