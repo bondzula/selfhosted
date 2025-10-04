@@ -1,0 +1,36 @@
+services:
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 9696:9696
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/prowlarr:/config
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - LOG_LEVEL=info
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true

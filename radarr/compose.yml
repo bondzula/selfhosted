@@ -1,0 +1,48 @@
+services:
+  radarr-hd:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-hd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 7878:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/radarr-hd:/config
+      - /mnt/media/movies/1080p/:/mnt/media/movies/1080p
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+  radarr-uhd:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr-uhd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 7879:7878
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/radarr-uhd:/config
+      - /mnt/media/movies/4k/:/mnt/media/movies/4k
+      - /mnt/media/usenet/:/mnt/media/usenet
+      - /mnt/media/torrents/:/mnt/media/torrents
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true

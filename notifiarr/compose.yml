@@ -1,0 +1,22 @@
+services:
+  notifiarr:
+    image: golift/notifiarr
+    container_name: notifiarr
+    hostname: notifiarr
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 5454:5454
+    volumes:
+      - /mnt/appdata/notifiarr:/config
+      - /var/run/utmp:/var/run/utmp
+      - /etc/machine-id:/etc/machine-id
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    restart: unless-stopped
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true

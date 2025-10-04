@@ -1,0 +1,65 @@
+services:
+  bazarr-hd:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-hd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6767:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-hd:/config
+      - /mnt/media/movies/1080p:/mnt/media/movies/1080p
+      - /mnt/media/tv/1080p:/mnt/media/tv/1080p
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+  bazarr-uhd:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-uhd
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6768:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-uhd:/config
+      - /mnt/media:/mnt/media
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+  bazarr-anime:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr-anime
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 6769:6767
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Belgrade
+    volumes:
+      - /mnt/appdata/bazarr-anime:/config
+      - /mnt/media:/mnt/media
+    labels:
+      - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true
