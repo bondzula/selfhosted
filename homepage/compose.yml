@@ -14,3 +14,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - com.centurylinklabs.watchtower.enable=true
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true

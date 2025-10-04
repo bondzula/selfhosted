@@ -5,7 +5,9 @@ services:
       dockerfile: Dockerfile
     container_name: caddy
     restart: unless-stopped
-    network_mode: "host"
+    ports:
+      - "80:80"
+      - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - /mnt/appdata/caddy/data:/data
@@ -14,3 +16,9 @@ services:
       - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
       - ACME_AGREE=true
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true
