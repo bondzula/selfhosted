@@ -8,14 +8,14 @@ services:
 
   db:
     image: docker.io/library/postgres:17
-    restart: unless-stopped
     user: 1000:1000
+    restart: unless-stopped
     volumes:
       - /mnt/appdata/paperless/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ${PAPERLESS_DBNAME}
+      POSTGRES_USER: ${PAPERLESS_DBUSER}
+      POSTGRES_PASSWORD: ${PAPERLESS_DBPASS}
 
   webserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
@@ -33,4 +33,3 @@ services:
     env_file: .env
     environment:
       PAPERLESS_REDIS: redis://broker:6379
-      PAPERLESS_DBHOST: db
