@@ -54,6 +54,16 @@ gitea.local.bondzulic.com {
 	}
 }
 
+paperless.local.bondzulic.com {
+	reverse_proxy 192.168.0.20:3000 {
+    header_down Referrer-Policy "strict-origin-when-cross-origin"
+
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 torrent.local.bondzulic.com {
 	reverse_proxy 192.168.0.40:8085 {
 		# Standard headers
