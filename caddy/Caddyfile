@@ -38,6 +38,14 @@ uptime-kuma.local.bondzulic.com {
 	}
 }
 
+immich.local.bondzulic.com {
+	reverse_proxy 192.168.0.20:2283 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 torrent.local.bondzulic.com {
 	reverse_proxy 192.168.0.40:8085 {
 		# Standard headers
