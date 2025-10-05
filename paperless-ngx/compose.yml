@@ -2,12 +2,14 @@ services:
   broker:
     image: docker.io/library/redis:8
     restart: unless-stopped
+    user: 1000:1000
     volumes:
       - /mnt/appdata/paperless/redis:/data
 
   db:
     image: docker.io/library/postgres:17
     restart: unless-stopped
+    user: 1000:1000
     volumes:
       - /mnt/appdata/paperless/db:/var/lib/postgresql/data
     environment:
