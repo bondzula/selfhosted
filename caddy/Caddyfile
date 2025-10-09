@@ -73,6 +73,14 @@ paperless.local.bondzulic.com {
 	}
 }
 
+grocy.local.bondzulic.com {
+	reverse_proxy 192.168.0.20:8000 {
+		# Standard headers
+		header_up Host {host}
+		header_up X-Real-IP {remote_ip}
+	}
+}
+
 torrent.local.bondzulic.com {
 	reverse_proxy 192.168.0.40:8085 {
 		# Standard headers
