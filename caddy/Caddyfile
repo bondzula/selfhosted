@@ -74,7 +74,7 @@ paperless.local.bondzulic.com {
 }
 
 grocy.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:8000 {
+	reverse_proxy 192.168.0.20:9283 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
