@@ -18,8 +18,6 @@ services:
           max-size: 10m
     labels:
       - com.centurylinklabs.watchtower.enable=true
-    depends_on:
-      - gluetun
 
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
@@ -36,6 +34,4 @@ services:
       - /mnt/media/usenet:/mnt/media/usenet
     labels:
       - com.centurylinklabs.watchtower.enable=true
-    depends_on:
-      - gluetun
 
