@@ -8,7 +8,7 @@
 }
 
 proxmox.local.bondzulic.com {
-	reverse_proxy https://192.168.0.150:8006 {
+	reverse_proxy https://192.168.1.150:8006 {
 		transport http {
 			tls_insecure_skip_verify
 		}
@@ -24,7 +24,7 @@ proxmox.local.bondzulic.com {
 }
 
 homepage.local.bondzulic.com {
-	reverse_proxy 192.168.0.10:3000 {
+	reverse_proxy 192.168.1.10:3000 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -32,7 +32,7 @@ homepage.local.bondzulic.com {
 }
 
 speedtest.local.bondzulic.com {
-	reverse_proxy 192.168.0.10:8080 {
+	reverse_proxy 192.168.1.10:8080 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -40,7 +40,7 @@ speedtest.local.bondzulic.com {
 }
 
 uptime-kuma.local.bondzulic.com {
-	reverse_proxy 192.168.0.10:3001 {
+	reverse_proxy 192.168.1.10:3001 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -48,7 +48,7 @@ uptime-kuma.local.bondzulic.com {
 }
 
 immich.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:2283 {
+	reverse_proxy 192.168.1.20:2283 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -56,7 +56,7 @@ immich.local.bondzulic.com {
 }
 
 gitea.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:3000 {
+	reverse_proxy 192.168.1.20:3000 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -64,7 +64,7 @@ gitea.local.bondzulic.com {
 }
 
 paperless.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:8000 {
+	reverse_proxy 192.168.1.20:8000 {
     header_down Referrer-Policy "strict-origin-when-cross-origin"
 
 		# Standard headers
@@ -74,7 +74,7 @@ paperless.local.bondzulic.com {
 }
 
 grocy.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:9283 {
+	reverse_proxy 192.168.1.20:9283 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -82,7 +82,7 @@ grocy.local.bondzulic.com {
 }
 
 karakeep.local.bondzulic.com {
-	reverse_proxy 192.168.0.20:3050 {
+	reverse_proxy 192.168.1.20:3050 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -90,7 +90,7 @@ karakeep.local.bondzulic.com {
 }
 
 rdt.local.bondzulic.com {
-	reverse_proxy 192.168.0.40:6500 {
+	reverse_proxy 192.168.1.40:6500 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -98,7 +98,7 @@ rdt.local.bondzulic.com {
 }
 
 sabnzbd.local.bondzulic.com {
-	reverse_proxy 192.168.0.40:8080 {
+	reverse_proxy 192.168.1.40:8080 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -106,7 +106,7 @@ sabnzbd.local.bondzulic.com {
 }
 
 prowlarr.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:9696 {
+	reverse_proxy 192.168.1.41:9696 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -114,7 +114,7 @@ prowlarr.local.bondzulic.com {
 }
 
 radarr-hd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:7878 {
+	reverse_proxy 192.168.1.41:7878 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -122,7 +122,7 @@ radarr-hd.local.bondzulic.com {
 }
 
 radarr-uhd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:7879 {
+	reverse_proxy 192.168.1.41:7879 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -130,7 +130,7 @@ radarr-uhd.local.bondzulic.com {
 }
 
 sonarr-hd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:8989 {
+	reverse_proxy 192.168.1.41:8989 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -138,7 +138,7 @@ sonarr-hd.local.bondzulic.com {
 }
 
 sonarr-uhd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:8990 {
+	reverse_proxy 192.168.1.41:8990 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -146,7 +146,7 @@ sonarr-uhd.local.bondzulic.com {
 }
 
 sonarr-anime.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:8991 {
+	reverse_proxy 192.168.1.41:8991 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -154,7 +154,7 @@ sonarr-anime.local.bondzulic.com {
 }
 
 bazarr-hd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:6767 {
+	reverse_proxy 192.168.1.41:6767 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -162,7 +162,7 @@ bazarr-hd.local.bondzulic.com {
 }
 
 bazarr-uhd.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:6768 {
+	reverse_proxy 192.168.1.41:6768 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -170,7 +170,7 @@ bazarr-uhd.local.bondzulic.com {
 }
 
 bazarr-anime.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:6769 {
+	reverse_proxy 192.168.1.41:6769 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -178,7 +178,7 @@ bazarr-anime.local.bondzulic.com {
 }
 
 notifiarr.local.bondzulic.com {
-	reverse_proxy 192.168.0.41:5454 {
+	reverse_proxy 192.168.1.41:5454 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -186,7 +186,7 @@ notifiarr.local.bondzulic.com {
 }
 
 jellyfin.local.bondzulic.com {
-	reverse_proxy 192.168.0.30:8096 {
+	reverse_proxy 192.168.1.30:8096 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -194,7 +194,7 @@ jellyfin.local.bondzulic.com {
 }
 
 jellyseerr.local.bondzulic.com {
-	reverse_proxy 192.168.0.30:5055 {
+	reverse_proxy 192.168.1.30:5055 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -202,7 +202,7 @@ jellyseerr.local.bondzulic.com {
 }
 
 jellystat.local.bondzulic.com {
-	reverse_proxy 192.168.0.30:3000 {
+	reverse_proxy 192.168.1.30:3000 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
@@ -210,7 +210,7 @@ jellystat.local.bondzulic.com {
 }
 
 silverbullet.local.bondzulic.com {
-	reverse_proxy 192.168.0.50:3000 {
+	reverse_proxy 192.168.1.50:3000 {
 		# Standard headers
 		header_up Host {host}
 		header_up X-Real-IP {remote_ip}
