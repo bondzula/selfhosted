@@ -5,7 +5,7 @@ services:
       - no-new-privileges:true
     user: 1000:1000
     group_add:
-      - "226"
+      - "104"
     ports:
       - 8096:8096
     volumes:
